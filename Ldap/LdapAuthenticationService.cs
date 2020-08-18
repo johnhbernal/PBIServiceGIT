@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using PBIServices.Ldap;
 using Microsoft.Extensions.Options;
 using System.DirectoryServices;
+using Microsoft.AspNetCore.Authentication;
+using System.DirectoryServices.AccountManagement;
 
 namespace PBIServices.Ldap
 {
     public class LdapAuthenticationService : IAuthenticationService
     {
+        public string estado = null;
         private const string DisplayNameAttribute = "DisplayName";
         private const string SAMAccountNameAttribute = "SAMAccountName";
 
@@ -26,7 +29,7 @@ namespace PBIServices.Ldap
         {
             try
             {
-                using (DirectoryEntry entry = new DirectoryEntry(config.Path, config.UserDomainName + "\\" + UserName, Password))
+                using (DirectoryEntry entry = new DirectoryEntry(config.Path+config.UserDomainName,UserName, Password))
                 {
                     using (DirectorySearcher searcher = new DirectorySearcher(entry))
                     {
@@ -41,9 +44,10 @@ namespace PBIServices.Ldap
 
                             return new UserInfo
                             {
-                                Email = displayName == null || displayName.Count <= 0 ? null : displayName[0].ToString(),
+                                DisplayName = displayName == null || displayName.Count <= 0 ? null : displayName[0].ToString(),
                                 UserName = samAccountName == null || samAccountName.Count <= 0 ? null : samAccountName[0].ToString()
                             };
+
                         }
                     }
                 }
@@ -55,7 +59,10 @@ namespace PBIServices.Ldap
                 //estado = false;
                 Funciones.Logs("LdapAuthenticationService", "Problemas al abrir la conexion; Captura error: " + ex.Message);
                 Funciones.Logs("LdapAuthenticationService_DEBUG", ex.StackTrace);
+
+        
             }
+
             return null;
             //return estado;
         }

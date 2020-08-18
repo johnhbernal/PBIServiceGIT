@@ -4,6 +4,8 @@ namespace InventoryService.Models
 {
     public partial class InventoryContext : DbContext
     {
+        internal object user;
+
         public InventoryContext(DbContextOptions<InventoryContext> options)
             : base(options)
         {

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using PBIServices.Ldap;
 using System.Text;
+using IAuthenticationService = PBIServices.Ldap.IAuthenticationService;
 
 namespace InventoryService
 {
@@ -29,12 +30,12 @@ namespace InventoryService
         public void ConfigureServices(IServiceCollection services)
         {
 
-            _ = services.AddScoped<PBIServices.Ldap.IAuthenticationService, LdapAuthenticationService>();
-
+          
+            services.AddScoped<IAuthenticationService, LdapAuthenticationService>();
 
             // read LDAP Configuration
-            _ = services.Configure<PBIServices.Ldap.LdapConfig>(Configuration.GetSection("Ldap"));
-          
+            services.Configure<LdapConfig>(Configuration.GetSection("Ldap"));
+
 
 
             var connection = Configuration.GetConnectionString("InventoryDatabase");

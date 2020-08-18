@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventoryService.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class LineasController : ControllerBase
