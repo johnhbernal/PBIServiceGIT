@@ -36,10 +36,11 @@ namespace InventoryService
             // read LDAP Configuration
             services.Configure<LdapConfig>(Configuration.GetSection("Ldap"));
 
-
-
             var connection = Configuration.GetConnectionString("InventoryDatabase");
+            //var connection2 = Configuration.GetConnectionString("VendedoresDatabase");
+
             services.AddDbContextPool<InventoryContext>(options => options.UseSqlServer(connection));
+            //services2.AddDbContextPool<InventoryContext>(options => options.UseSqlServer(connection2));
 
             services.AddControllers();
 

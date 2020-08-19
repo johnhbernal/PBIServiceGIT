@@ -16,6 +16,7 @@ namespace PBIServices.Ldap
         public string estado = null;
         private const string DisplayNameAttribute = "DisplayName";
         private const string SAMAccountNameAttribute = "SAMAccountName";
+        private const string mail = "mail";
 
         private readonly LdapConfig config;
 
@@ -34,17 +35,21 @@ namespace PBIServices.Ldap
                     using (DirectorySearcher searcher = new DirectorySearcher(entry))
                     {
                         searcher.Filter = String.Format("({0}={1})", SAMAccountNameAttribute, UserName);
-                        searcher.PropertiesToLoad.Add(DisplayNameAttribute);
+                        //searcher.PropertiesToLoad.Add(DisplayNameAttribute);
                         searcher.PropertiesToLoad.Add(SAMAccountNameAttribute);
+                        //searcher.PropertiesToLoad.Add(Password);
                         var result = searcher.FindOne();
                         if (result != null)
                         {
-                            var displayName = result.Properties[DisplayNameAttribute];
+                            //var displayName = result.Properties[DisplayNameAttribute];
+                            //var email = result.Properties[mail];
                             var samAccountName = result.Properties[SAMAccountNameAttribute];
+                            //var password = result.Properties[Password];
 
                             return new UserInfo
                             {
-                                DisplayName = displayName == null || displayName.Count <= 0 ? null : displayName[0].ToString(),
+                                //DisplayName = displayName == null || displayName.Count <= 0 ? null : displayName[0].ToString(),
+                                //Password = password == null || password.Count <= 0 ? null : password[0].ToString(),
                                 UserName = samAccountName == null || samAccountName.Count <= 0 ? null : samAccountName[0].ToString()
                             };
 

@@ -37,14 +37,8 @@ namespace InventoryService.Controllers
 
             //var user = GetLineas(UserName="john.bernal", Password="Carval2019b");
 
-
-
-
-   
-
-
-            var user = authService.Login( "john.bernal","Carval2019b");
-
+            //var user = authService.Login( "john.bernal","Carval2019b");
+            var user = authService.Login("john.bernal", "Carval2019b");
 
             //if (null != user)
             if (null != user)
@@ -55,7 +49,8 @@ namespace InventoryService.Controllers
                     //return (IActionResult)await _context.Lineas.ToListAsync();
                     //return (IActionResult)user;
                     //return await _context.Lineas.ToListAsync();
-                    return Ok("debe estar bien");
+
+                    return Ok("debe estar bien "+ user.UserName+" - "+user.Password);
                 }
                 catch (Exception ex)
                 {
