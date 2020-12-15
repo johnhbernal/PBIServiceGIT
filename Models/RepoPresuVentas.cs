@@ -6,11 +6,12 @@ namespace InventoryService.Models
     [Table("PBI_ReportePresupuestoVentas")]
     public class RepoPresuVentas
     {
-
         [StringLength(7)]
         public string Periodo { get; }
+
         [Key]
         public string IdDimproductos { get; }
+
         public string IdOrgVentas { get; }
         public string IdVendedor { get; }
         public string IdMaterial { get; }
@@ -21,8 +22,10 @@ namespace InventoryService.Models
         public string Linea { get; }
         public string IdGrArticulos { get; }
         public string NombreGrArticulos { get; }
+
         [StringLength(1)]
         public int Intercompany { get; }
+
         public decimal CantidadTotal { get; }
         public decimal CantidadBonificada { get; }
         public decimal CantidadMuestra { get; }
@@ -38,11 +41,13 @@ namespace InventoryService.Models
         public decimal PptoUSD { get; }
         public decimal PptoMG { get; }
         public decimal Unidades { get; }
+
         [StringLength(1)]
         public decimal AjusteFormato { get; }
+
         public string RepresentanteVentas { get; }
+
         [StringLength(2)]
         public string CodTipo { get; }
-
     }
 }

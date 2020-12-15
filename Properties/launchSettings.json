@@ -22,7 +22,7 @@
       //"launchUrl": "api/Sociedades"
 
       //"launchUrl": "api/Clientes",
-      //"launchUrl": "api/Lineas"
+      "launchUrl": "api/Lineas"
       //"launchUrl": "api/Productos",
       //"launchUrl": "api/Estados",
       //"launchUrl": "api/Presupuestos"
@@ -32,9 +32,7 @@
       //"launchUrl": "api/RepoPresuVentas"
 
       //"launchUrl": "api/token"
-      "launchUrl": "api/Security"
-
-
+      //"launchUrl": "api/Security"
     },
     "InventoryService": {
       "commandName": "Project",

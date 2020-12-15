@@ -24,7 +24,7 @@ namespace InventoryService.Controllers
         {
             var products = _context.Products.AsQueryable();
 
-            if (inStock != null) // Adds the condition to check availability 
+            if (inStock != null) // Adds the condition to check availability
             {
                 products = _context.Products.Where(i => i.AvailableQuantity > 0);
             }
@@ -120,8 +120,5 @@ namespace InventoryService.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
-
-
-
     }
 }

@@ -11,6 +11,5 @@ namespace InventoryService.Models
         public string NombreGrArticulos { get; }
         public string AgrupacionMarca { get; }
         public string GrupoProductos { get; }
-
     }
 }

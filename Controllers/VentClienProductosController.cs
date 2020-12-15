@@ -1,11 +1,9 @@
-﻿using System;
+﻿using InventoryService.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using InventoryService.Models;
 
 namespace PBIServices.Controllers
 {
@@ -24,11 +22,9 @@ namespace PBIServices.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VentClienProductos>>> GetVentClienProductos(string? NumIdOrgVentas = "1000", string? NumUndNegocio = "masc")
         {
-
             //return await _context.VentClienProductos.Where(x => x.IdOrgVentas == NumIdOrgVentas).Where(x => EF.Functions.Like(x.UndNegocio, "%" + NumUndNegocio + "%")).ToListAsync();
 
             return await _context.VentClienProductos.Where(x => x.IdOrgVentas == NumIdOrgVentas).ToListAsync();
         }
-
     }
 }

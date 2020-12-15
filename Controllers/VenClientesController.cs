@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using InventoryService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using InventoryService.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PBIServices.Controllers
 {
@@ -26,7 +23,5 @@ namespace PBIServices.Controllers
         {
             return await _context.VenClientes.ToListAsync();
         }
-
-        
     }
 }

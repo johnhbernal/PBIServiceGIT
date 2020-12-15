@@ -23,9 +23,6 @@ namespace InventoryService.Controllers
         public async Task<ActionResult<IEnumerable<Sociedades>>> GetSociedades()
         {
             return await _context.Sociedades.ToListAsync();
-
         }
-
-
     }
 }

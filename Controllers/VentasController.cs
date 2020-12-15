@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace InventoryService.Controllers
 {
-
-
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -23,14 +21,10 @@ namespace InventoryService.Controllers
 
         // GET: api/Ventas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ventas>>> GetVentas(string? NumIdOrgVentas="1000", string? NumUndNegocio = "masc", string? NumIdVendedor="019")
+        public async Task<ActionResult<IEnumerable<Ventas>>> GetVentas(string? NumIdOrgVentas = "1000", string? NumUndNegocio = "masc", string? NumIdVendedor = "019")
         {
-
-            return await _context.Ventas.Where(x => x.IdOrgVentas == NumIdOrgVentas).Where(x => EF.Functions.Like(x.UndNegocio, "%"+NumUndNegocio+"%")).Where(x => x.IdVendedor == NumIdVendedor).ToListAsync();
+            return await _context.Ventas.Where(x => x.IdOrgVentas == NumIdOrgVentas).Where(x => EF.Functions.Like(x.UndNegocio, "%" + NumUndNegocio + "%")).Where(x => x.IdVendedor == NumIdVendedor).ToListAsync();
             //return await _context.Ventas.Where(x => x.IdOrgVentas == "1065").ToListAsync();
-
-          
         }
-
     }
 }

@@ -25,6 +25,5 @@ namespace InventoryService.Controllers
         {
             return await _context.RepoPresuVentas.Where(x => x.IdOrgVentas == NumIdOrgVentas).Where(x => x.IdVendedor == NumIdVendedor).ToListAsync();
         }
-
     }
 }

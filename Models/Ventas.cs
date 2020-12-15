@@ -24,8 +24,10 @@ namespace InventoryService.Models
         public string NombreG2 { get; }
         public string NombreG3 { get; }
         public string Idmaterial { get; }
+
         [StringLength(1)]
         public int Intercompany { get; }
+
         public decimal CantidadTotal { get; }
         public decimal CantidadBonificada { get; }
         public decimal CantidadMuestra { get; }
@@ -41,10 +43,10 @@ namespace InventoryService.Models
         public string IdDimVendedores { get; }
         public decimal ValorSinFlete { get; }
         public decimal CostoPromedioMaterial { get; }
+
         [StringLength(1)]
         public decimal AjusteFormato { get; }
+
         public string IdSociedad { get; }
-
-
     }
 }

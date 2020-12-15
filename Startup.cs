@@ -1,5 +1,4 @@
 using InventoryService.Models;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using PBIServices.Ldap;
+using System.Linq;
 using System.Text;
 using IAuthenticationService = PBIServices.Ldap.IAuthenticationService;
 
@@ -16,21 +16,16 @@ namespace InventoryService
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-          
             services.AddScoped<IAuthenticationService, LdapAuthenticationService>();
 
             // read LDAP Configuration
@@ -80,6 +75,5 @@ namespace InventoryService
                 endpoints.MapControllers();
             });
         }
-
     }
 }

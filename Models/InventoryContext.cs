@@ -4,7 +4,6 @@ namespace InventoryService.Models
 {
     public partial class InventoryContext : DbContext
     {
-
         public InventoryContext(DbContextOptions<InventoryContext> options)
             : base(options)
         {
@@ -24,7 +23,6 @@ namespace InventoryService.Models
         public virtual DbSet<VentClienProductos> VentClienProductos { get; set; }
         public virtual DbSet<RepoPresuVentas> RepoPresuVentas { get; set; }
         public virtual DbSet<UserInfo> Security { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -86,31 +84,26 @@ namespace InventoryService.Models
 
             modelBuilder.Entity<Sociedades>(entity =>
             {
-
                 entity.HasKey(e => new { e.IdSociedad });
 
                 entity.Property(e => e.Sociedad)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<Cliente>(entity =>
             {
-
                 entity.HasKey(e => new { e.IdCliente });
 
                 entity.Property(e => e.NombreComercial)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<Lineas>(entity =>
             {
-
                 entity.HasKey(e => new { e.Linea });
 
                 entity.Property(e => e.UndNegocio)
@@ -121,12 +114,10 @@ namespace InventoryService.Models
                    .IsRequired()
                    .HasMaxLength(255)
                    .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<Productos>(entity =>
             {
-
                 entity.HasKey(e => new { e.idMaterial });
 
                 entity.Property(e => e.Producto)
@@ -153,12 +144,10 @@ namespace InventoryService.Models
                  //.IsRequired()
                  .HasMaxLength(255)
                  .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<Estados>(entity =>
             {
-
                 entity.HasNoKey();
 
                 entity.Property(e => e.Rubro)
@@ -198,7 +187,6 @@ namespace InventoryService.Models
               .HasMaxLength(255)
               .IsUnicode(false);
 
-
                 entity.Property(e => e.MatCebe)
           //.IsRequired()
           .HasMaxLength(255)
@@ -209,7 +197,6 @@ namespace InventoryService.Models
           .HasMaxLength(255)
           .IsUnicode(false);
 
-
                 entity.Property(e => e.VentaPpto)
             //.IsRequired()
             .HasMaxLength(255)
@@ -218,12 +205,9 @@ namespace InventoryService.Models
 
             modelBuilder.Entity<Presupuesto>(entity =>
             {
-
                 //entity.HasNoKey();
 
-
                 entity.HasKey(e => new { e.IdDimproductos });
-
 
                 entity.Property(e => e.Periodo)
               //.IsRequired()
@@ -319,7 +303,6 @@ namespace InventoryService.Models
 
                 entity.Property(e => e.AjusteFormato).HasColumnType("int(1, 0)");
 
-
                 entity.Property(e => e.RepresentanteVentas)
                  //.IsRequired()
                  .HasMaxLength(255)
@@ -329,17 +312,13 @@ namespace InventoryService.Models
               //.IsRequired()
               .HasMaxLength(2)
               .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<Ventas>(entity =>
                 {
-
                     //entity.HasNoKey();
 
-
                     entity.HasKey(e => new { e.Fecha });
-
 
                     entity.Property(e => e.Fecha)
                   //.IsRequired()
@@ -466,19 +445,15 @@ namespace InventoryService.Models
 
                     entity.Property(e => e.AjusteFormato).HasColumnType("int(1, 0)");
 
-
                     entity.Property(e => e.IdSociedad)
                    //.IsRequired()
                    .HasMaxLength(255)
                    .IsUnicode(false);
-
                 });
 
             modelBuilder.Entity<VenClientes>(entity =>
               {
-
                   entity.HasNoKey();
-
 
                   //entity.HasKey(e => new { e.Fecha });
                   //entity.HasKey(e => e.Fecha)
@@ -541,19 +516,15 @@ namespace InventoryService.Models
                   //.IsRequired()
                   .HasMaxLength(1)
                   .IsUnicode(false);
-
               });
 
             modelBuilder.Entity<VentClienProductos>(entity =>
             {
-
                 //entity.HasNoKey();
-
 
                 entity.HasKey(e => new { e.Linea });
                 //entity.HasKey(e => e.Fecha)
                 //.HasName("PK__VenClientProductos");
-
 
                 entity.Property(e => e.Linea)
                     //.IsRequired()
@@ -586,12 +557,10 @@ namespace InventoryService.Models
                 //.IsRequired()
                 .HasMaxLength(1)
                 .IsUnicode(false);
-
             });
 
             modelBuilder.Entity<RepoPresuVentas>(entity =>
             {
-
                 //entity.HasNoKey();
 
                 entity.HasKey(e => new { e.IdDimproductos });
@@ -603,7 +572,6 @@ namespace InventoryService.Models
                    //.IsRequired()
                    .HasMaxLength(7)
                    .IsUnicode(false);
-
 
                 entity.Property(e => e.IdDimproductos)
                    //.IsRequired()
@@ -645,7 +613,6 @@ namespace InventoryService.Models
                  .HasMaxLength(255)
                  .IsUnicode(false);
 
-
                 entity.Property(e => e.Linea)
                  //.IsRequired()
                  .HasMaxLength(255)
@@ -660,7 +627,6 @@ namespace InventoryService.Models
                  //.IsRequired()
                  .HasMaxLength(255)
                  .IsUnicode(false);
-
 
                 entity.Property(e => e.Intercompany).HasColumnType("int(1, 0)");
 
@@ -707,13 +673,11 @@ namespace InventoryService.Models
                //.IsRequired()
                .HasMaxLength(2)
                .IsUnicode(false);
-
             });
 
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
     }
 }

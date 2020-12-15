@@ -9,8 +9,10 @@ namespace InventoryService.Models
     {
         [Key]
         public DateTime Fecha { get; }
+
         [StringLength(4)]
         public int Anyo { get; }
+
         public string Linea { get; }
         public string UndNegocio { get; }
         public string IdOrgVentas { get; }
@@ -21,8 +23,8 @@ namespace InventoryService.Models
         public decimal VentaML { get; }
         public decimal VentaMG { get; }
         public string RepresentanteVentas { get; }
+
         [StringLength(1)]
         public int AjusteFormato { get; }
-
     }
 }

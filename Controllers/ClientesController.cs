@@ -25,7 +25,5 @@ namespace InventoryService.Controllers
         {
             return await _context.Cliente.ToListAsync();
         }
-
-
     }
 }

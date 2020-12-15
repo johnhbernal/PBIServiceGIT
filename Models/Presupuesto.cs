@@ -8,8 +8,10 @@ namespace InventoryService.Models
     {
         [StringLength(7)]
         public string Periodo { get; }
+
         [Key]
         public string IdDimproductos { get; }
+
         public string IdOrgVentas { get; }
         public string IdVendedor { get; }
         public string IdMaterial { get; }
@@ -20,8 +22,10 @@ namespace InventoryService.Models
         public string Linea { get; }
         public string IdGrArticulos { get; }
         public string NombreGrArticulos { get; }
+
         [StringLength(1)]
         public int Intercompany { get; }
+
         public int CantidadTotal { get; }
         public int CantidadBonificada { get; }
         public int CantidadMuestra { get; }
@@ -39,9 +43,8 @@ namespace InventoryService.Models
         public int Unidades { get; }
         public decimal AjusteFormato { get; }
         public string RepresentanteVentas { get; }
+
         [StringLength(2)]
         public string CodTipo { get; }
-
-
     }
 }

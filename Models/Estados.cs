@@ -6,7 +6,6 @@ namespace InventoryService.Models
     [Table("PBI_EstadoResultado")]
     public class Estados
     {
-
         public string Rubro { get; }
         public Decimal Valor { get; }
         public string Ejercicio { get; }
@@ -18,6 +17,5 @@ namespace InventoryService.Models
         public string MatCebe { get; }
         public string Tipo { get; }
         public string VentaPpto { get; }
-
     }
 }
