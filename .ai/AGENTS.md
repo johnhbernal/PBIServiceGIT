@@ -21,3 +21,7 @@
 | Teaching AuthN/AuthZ, health, CI, Docker | Wiring real enterprise DBs |
 | Simulated directory (Practica-style honesty) | Claiming production LDAP |
 | Demo seed users | Copying real customer data |
+
+## Piso transversal
+
+Skill personal `redtic-software-practices` ([Red-TIC UNAM](https://www.red-tic.unam.mx/desarrollo-de-software)) — req → diseño → construcción → QA → release → config. No sustituye las fichas de este repo.
