@@ -19,3 +19,6 @@ jobs:
         run: dotnet restore PBIServices.sln
       - name: Build
         run: dotnet build PBIServices.sln -c Release --no-restore
+
+      - name: Test
+        run: dotnet test PBIServices.sln -c Release --no-build

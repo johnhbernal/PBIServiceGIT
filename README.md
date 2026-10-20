@@ -53,6 +53,21 @@ dotnet run --project PBIServices.csproj
 - Password compare in seed is plaintext **for teaching only**.
 - See [`.ai/SECURITY.md`](.ai/SECURITY.md) · [`.ai/ACTIVE-DIRECTORY.md`](.ai/ACTIVE-DIRECTORY.md) · [`.ai/AGENTS.md`](.ai/AGENTS.md).
 
+## Tests
+
+```powershell
+dotnet test PBIServices.sln -c Release
+```
+
+`tests/PBIServices.Tests` boots the real `Startup` with `WebApplicationFactory` (InMemory +
+simulated directory) and pins the lesson: `/health` anonymous, `/api/Lineas` **401** without a
+token, bad credentials **401**, missing fields **400**, and the seeded `admin@demo.local` token
+opening `/api/Lineas` with **200**. The CI job runs it after the build.
+
+Dependency audit: `dotnet list PBIServices.csproj package --vulnerable --include-transitive`
+must report **no vulnerable packages** (two transitive High advisories are pinned out in
+`PBIServices.csproj`).
+
 ## Related portfolio
 
 | Repo | Role |
